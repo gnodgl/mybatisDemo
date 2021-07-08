@@ -12,3 +12,9 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: con.example.demo.entities
+logging:
+  level:
+    com:
+      example:
+        demo:
+          mapper: debug

@@ -1,0 +1,30 @@
+PUT http://localhost:7878/user
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "tom1",
+  "password": "3456"
+}
+
+<> 2021-07-06T174330.200.json
+<> 2021-07-06T174241.200.json
+
+###
+
+GET http://localhost:7878/posts?pageNum=2&pageSize=3
+
+<> 2021-07-08T162852.200.json
+
+
+###
+POST http://localhost:7878/posts
+Content-Type: application/json
+
+{
+  "pageNum":"2",
+  "pageSize":"3"
+}
+
+<> 2021-07-08T163339.200.json
+
