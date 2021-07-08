@@ -4,10 +4,11 @@ import com.example.demo.entities.Post;
 import com.example.demo.entities.User;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.PostService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * @author 神隐`
@@ -41,8 +42,10 @@ public class UserController {
         return postService.insert(post);
     }
 
-    @GetMapping("posts")
-    public List<Post> getAllPost(){
-        return postService.getAllPost();
+    @PostMapping("/posts")
+    public PageInfo<Post> getAllPost(@RequestBody HashMap<String,String> query){
+        int pageNum = Integer.parseInt(query.get("pageNum"));
+        int pageSize = Integer.parseInt(query.get("pageSize"));
+        return postService.getAllPost(pageNum,pageSize);
     }
 }

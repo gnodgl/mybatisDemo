@@ -2,10 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.entities.Post;
 import com.example.demo.mapper.PostMapper;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author 神隐`
@@ -49,7 +50,8 @@ public class PostService{
         return postMapper.updateByPrimaryKey(record);
     }
 
-    public List<Post> getAllPost() {
-        return postMapper.getAllPost();
+    public PageInfo<Post> getAllPost(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        return new PageInfo<>(postMapper.getAllPost());
     }
 }
